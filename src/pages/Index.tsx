@@ -1,13 +1,47 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Design } from "@/lib/designs";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { Collections } from "@/components/Collections";
+import { DesignGallery } from "@/components/DesignGallery";
+import { Process } from "@/components/Process";
+import { Reviews } from "@/components/Reviews";
+import { FAQ } from "@/components/FAQ";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 const Index = () => {
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [selectedDesign, setSelectedDesign] = useState<Design | null>(null);
+
+  const handleSelectDesign = (design: Design) => {
+    setSelectedDesign(design);
+  };
+
+  const handleClearSelection = () => {
+    setSelectedDesign(null);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Collections onFilterChange={setCategoryFilter} />
+        <DesignGallery
+          categoryFilter={categoryFilter}
+          onCategoryChange={setCategoryFilter}
+          onSelectDesign={handleSelectDesign}
+        />
+        <Process />
+        <Reviews />
+        <FAQ />
+        <Contact selectedDesign={selectedDesign} onClearSelection={handleClearSelection} />
+      </main>
+      <Footer />
+      <FloatingWhatsApp />
+    </>
   );
 };
 
