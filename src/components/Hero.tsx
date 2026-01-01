@@ -34,7 +34,7 @@ export function Hero() {
                   </Button>
                 </div>
                 <p className="text-muted-foreground text-xs mt-4">
-                  WhatsApp: 0536856525 • Ghana & international orders
+                  WhatsApp: 0592887862 • Ghana & international orders
                 </p>
               </div>
             </div>
