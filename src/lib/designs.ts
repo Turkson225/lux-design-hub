@@ -6,7 +6,7 @@ export interface Design {
   desc: string;
 }
 
-export const WHATSAPP_NUMBER = "233536856525";
+export const WHATSAPP_NUMBER = "233592887862";
 
 export const DESIGNS: Design[] = [
   { id: "D01", name: "Design 01", category: "Dress", img: "/images/design-01.jpg", desc: "Luxury custom design — made to fit." },
